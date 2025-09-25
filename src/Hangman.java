@@ -4,6 +4,8 @@
 
 import java.util.*;
 
+/*
+// Lab 1
 public class Hangman {
     public static void main(String[] args) {
         // Variable init
@@ -54,4 +56,6 @@ public class Hangman {
         // Close input reader
         input.close();
     }
-}
+}*/
+
+// Lab 2
