@@ -105,8 +105,45 @@ public class Hangman {
                     System.out.println("Invalid choice, try again.");
                     continue;
             }
+
+            // Run program
+            playHangman(words, input);
         }
 
         input.close();
+    }
+
+    // Main program to handle game
+    public static void playHangman(String[] words, Scanner input) {
+        // Pick a random word and create a new array with equal length
+        String word = words[(int) (Math.random()*words.length)];
+        char[] guessedWord = new char[word.length()];
+        // Fill with *'s
+        for (int i=0; i<guessedWord.length; i++) {
+            guessedWord[i] = '*';
+        }
+
+        // While the guessed word does not equal the actual word..
+        int misses = 0;
+        while (!String.valueOf(guessedWord).equals(word)) {
+            System.out.print("(Guess) Enter a letter in word " + String.valueOf(guessedWord) + " > ");
+            char guess = input.next().charAt(0);
+
+            // If letter already guessed
+            if (String.valueOf(guessedWord).indexOf(guess) >= 0) {
+                System.out.println(guess + " is already in the word");
+            } else if (word.indexOf(guess) < 0) { // Wrong guess
+                System.out.println(guess + " is not in the word");
+                misses++;
+            } else { // Correct guess
+                for (int i=0; i<word.length(); i++) {
+                    if (word.charAt(i) == guess) {
+                        guessedWord[i] = guess;
+                    }
+                }
+            }
+        }
+        // Word completed
+        System.out.println("The word is " + word + ". You missed " + misses + (misses == 1 ? " time" : " times"));
     }
 }
