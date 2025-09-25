@@ -58,6 +58,7 @@ public class Hangman {
     }
 }*/
 
+/*
 // Lab 2
 public class Hangman {
     public static void main(String[] args) {
@@ -146,4 +147,6 @@ public class Hangman {
         // Word completed
         System.out.println("The word is " + word + ". You missed " + misses + (misses == 1 ? " time" : " times"));
     }
-}
+}*/
+
+// Lab 3
