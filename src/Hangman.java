@@ -59,3 +59,54 @@ public class Hangman {
 }*/
 
 // Lab 2
+public class Hangman {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Define 3 different word banks
+        String[] countries = {"canada", "mexico", "italy", "germany", "hungary"};
+        String[] food = {"pizza", "hotdog", "hamburger", "pasta", "potato"};
+        String[] animals = {"kangaroo", "elephant", "tiger", "shark", "dolphin"};
+
+        boolean cont = true;
+
+        while (cont) {
+            // Make menu
+            System.out.println("\n===== Hangman Menu =====");
+            System.out.println("1. Countries");
+            System.out.println("2. Food");
+            System.out.println("3. Animals");
+            System.out.println("4. Exit");
+            System.out.print("Choose a topic (1-4): ");
+
+            // Get user input
+            int choice = input.nextInt();
+            input.nextLine(); // consume newline
+
+            // Create array to store words in selected category
+            String[] words;
+
+            // Create menu switch
+            switch (choice) {
+                case 1:
+                    words = countries;
+                    break;
+                case 2:
+                    words = food;
+                    break;
+                case 3:
+                    words = animals;
+                    break;
+                case 4:
+                    System.out.println("Exiting game. Goodbye!");
+                    cont = false;
+                    continue;
+                default:
+                    System.out.println("Invalid choice, try again.");
+                    continue;
+            }
+        }
+
+        input.close();
+    }
+}
